@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eemlakDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="AdresID" />
+          </Key>
+          <Property Name="AdresID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SehirId" Type="int" Nullable="false" />
+          <Property Name="IlceId" Type="int" Nullable="false" />
+          <Property Name="Diger" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Begenmeler">
+          <Key>
+            <PropertyRef Name="BegenmeID" />
+          </Key>
+          <Property Name="BegenmeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" Nullable="false" />
+          <Property Name="IlanId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmlakTipi">
+          <Key>
+            <PropertyRef Name="EmlakTipiID" />
+          </Key>
+          <Property Name="EmlakTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Durum" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goruntulenmeler">
+          <Key>
+            <PropertyRef Name="GoruntulenmeID" />
+          </Key>
+          <Property Name="GoruntulenmeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlanId" Type="int" Nullable="false" />
+          <Property Name="KisiId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IlanDetay">
+          <Key>
+            <PropertyRef Name="IlanDetayID" />
+          </Key>
+          <Property Name="IlanDetayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlanId" Type="int" Nullable="false" />
+          <Property Name="BinaYasi" Type="int" Nullable="false" />
+          <Property Name="BulunduguKat" Type="int" Nullable="false" />
+          <Property Name="Durum" Type="bit" Nullable="false" />
+          <Property Name="EmlakTipiId" Type="int" Nullable="false" />
+          <Property Name="EmlakSahibiId" Type="int" Nullable="false" />
+          <Property Name="Esyali" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fiyat" Type="int" Nullable="false" />
+          <Property Name="KatSayisi" Type="int" Nullable="false" />
+          <Property Name="MetreKare" Type="int" Nullable="false" />
+          <Property Name="OdaSayisi" Type="int" Nullable="false" />
+          <Property Name="GoruntulenmeSayisi" Type="int" Nullable="false" />
+          <Property Name="BegenmeSayisi" Type="int" Nullable="false" />
+          <Property Name="YorumSayisi" Type="int" Nullable="false" />
+          <Property Name="KoordinatX" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KoordinatY" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdresId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ilanlar">
+          <Key>
+            <PropertyRef Name="IlanID" />
+          </Key>
+          <Property Name="IlanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlanBaslik" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IlanTarihi" Type="datetime" Nullable="false" />
+          <Property Name="Durum" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ilceler">
+          <Key>
+            <PropertyRef Name="IlceID" />
+          </Key>
+          <Property Name="IlceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlceAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KisiSayisi" Type="int" />
+          <Property Name="SehirId" Type="int" Nullable="false" />
+          <Property Name="Durum" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kisiler">
+          <Key>
+            <PropertyRef Name="KisilerID" />
+          </Key>
+          <Property Name="KisilerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoyAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="10" />
+          <Property Name="KayitTarihi" Type="datetime" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="11" />
+          <Property Name="TC" Type="nvarchar" MaxLength="11" />
+          <Property Name="Yas" Type="smallint" />
+        </EntityType>
+        <EntityType Name="KisiRol">
+          <Key>
+            <PropertyRef Name="KisiRolID" />
+          </Key>
+          <Property Name="KisiRolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolID" Type="int" Nullable="false" />
+          <Property Name="KisiID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resimler">
+          <Key>
+            <PropertyRef Name="ResimlerID" />
+          </Key>
+          <Property Name="ResimlerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlanID" Type="int" Nullable="false" />
+          <Property Name="ResimYolu" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roller">
+          <Key>
+            <PropertyRef Name="RolID" />
+          </Key>
+          <Property Name="RolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="SehirID" />
+          </Key>
+          <Property Name="SehirID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SehirAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KisiSayisi" Type="int" Nullable="false" />
+          <Property Name="IlceSayisi" Type="int" Nullable="false" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="YorumID" />
+          </Key>
+          <Property Name="YorumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Icerik" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="KisiId" Type="int" Nullable="false" />
+          <Property Name="IlanId" Type="int" Nullable="false" />
+          <Property Name="YorumTarihi" Type="datetime" Nullable="false" />
+          <Property Name="YorumBasligi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Adres_Ilceler">
+          <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="1" />
+          <End Role="Adres" Type="Self.Adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilceler">
+              <PropertyRef Name="IlceID" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="IlceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adres_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="1" />
+          <End Role="Adres" Type="Self.Adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="SehirID" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Begenmeler_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="Begenmeler" Type="Self.Begenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="Begenmeler">
+              <PropertyRef Name="IlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Begenmeler_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="Begenmeler" Type="Self.Begenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="Begenmeler">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goruntulenmeler_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="Goruntulenmeler" Type="Self.Goruntulenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="Goruntulenmeler">
+              <PropertyRef Name="IlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goruntulenmeler_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="Goruntulenmeler" Type="Self.Goruntulenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="Goruntulenmeler">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_Adres">
+          <End Role="Adres" Type="Self.Adres" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adres">
+              <PropertyRef Name="AdresID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="AdresId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_EmlakTipi1">
+          <End Role="EmlakTipi" Type="Self.EmlakTipi" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmlakTipi">
+              <PropertyRef Name="EmlakTipiID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="EmlakTipiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="IlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_Kisiler1">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="EmlakSahibiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ilceler_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="1" />
+          <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="SehirID" />
+            </Principal>
+            <Dependent Role="Ilceler">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KisiRol_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="KisiRol" Type="Self.KisiRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="KisiRol">
+              <PropertyRef Name="KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KisiRol_Roller">
+          <End Role="Roller" Type="Self.Roller" Multiplicity="1" />
+          <End Role="KisiRol" Type="Self.KisiRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roller">
+              <PropertyRef Name="RolID" />
+            </Principal>
+            <Dependent Role="KisiRol">
+              <PropertyRef Name="RolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resimler_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="Resimler" Type="Self.Resimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="Resimler">
+              <PropertyRef Name="IlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorumlar_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="Yorumlar">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eemlakDBModelStoreContainer">
+          <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Begenmeler" EntityType="Self.Begenmeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmlakTipi" EntityType="Self.EmlakTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goruntulenmeler" EntityType="Self.Goruntulenmeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IlanDetay" EntityType="Self.IlanDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ilanlar" EntityType="Self.Ilanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ilceler" EntityType="Self.Ilceler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kisiler" EntityType="Self.Kisiler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KisiRol" EntityType="Self.KisiRol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resimler" EntityType="Self.Resimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roller" EntityType="Self.Roller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sehirler" EntityType="Self.Sehirler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Adres_Ilceler" Association="Self.FK_Adres_Ilceler">
+            <End Role="Ilceler" EntitySet="Ilceler" />
+            <End Role="Adres" EntitySet="Adres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adres_Sehirler" Association="Self.FK_Adres_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="Adres" EntitySet="Adres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Begenmeler_Ilanlar" Association="Self.FK_Begenmeler_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="Begenmeler" EntitySet="Begenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Begenmeler_Kisiler" Association="Self.FK_Begenmeler_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="Begenmeler" EntitySet="Begenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goruntulenmeler_Ilanlar" Association="Self.FK_Goruntulenmeler_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="Goruntulenmeler" EntitySet="Goruntulenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goruntulenmeler_Kisiler" Association="Self.FK_Goruntulenmeler_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="Goruntulenmeler" EntitySet="Goruntulenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Adres" Association="Self.FK_IlanDetay_Adres">
+            <End Role="Adres" EntitySet="Adres" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_EmlakTipi1" Association="Self.FK_IlanDetay_EmlakTipi1">
+            <End Role="EmlakTipi" EntitySet="EmlakTipi" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Ilanlar" Association="Self.FK_IlanDetay_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Kisiler1" Association="Self.FK_IlanDetay_Kisiler1">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ilceler_Sehirler" Association="Self.FK_Ilceler_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="Ilceler" EntitySet="Ilceler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KisiRol_Kisiler" Association="Self.FK_KisiRol_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="KisiRol" EntitySet="KisiRol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KisiRol_Roller" Association="Self.FK_KisiRol_Roller">
+            <End Role="Roller" EntitySet="Roller" />
+            <End Role="KisiRol" EntitySet="KisiRol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resimler_Ilanlar" Association="Self.FK_Resimler_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="Resimler" EntitySet="Resimler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorumlar_Kisiler" Association="Self.FK_Yorumlar_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eemlakDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="AdresID" />
+          </Key>
+          <Property Name="AdresID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SehirId" Type="Int32" Nullable="false" />
+          <Property Name="IlceId" Type="Int32" Nullable="false" />
+          <Property Name="Diger" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ilceler" Relationship="Self.FK_Adres_Ilceler" FromRole="Adres" ToRole="Ilceler" />
+          <NavigationProperty Name="Sehirler" Relationship="Self.FK_Adres_Sehirler" FromRole="Adres" ToRole="Sehirler" />
+          <NavigationProperty Name="IlanDetay" Relationship="Self.FK_IlanDetay_Adres" FromRole="Adres" ToRole="IlanDetay" />
+        </EntityType>
+        <EntityType Name="Begenmeler">
+          <Key>
+            <PropertyRef Name="BegenmeID" />
+          </Key>
+          <Property Name="BegenmeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" Nullable="false" />
+          <Property Name="IlanId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ilanlar" Relationship="Self.FK_Begenmeler_Ilanlar" FromRole="Begenmeler" ToRole="Ilanlar" />
+          <NavigationProperty Name="Kisiler" Relationship="Self.FK_Begenmeler_Kisiler" FromRole="Begenmeler" ToRole="Kisiler" />
+        </EntityType>
+        <EntityType Name="EmlakTipi">
+          <Key>
+            <PropertyRef Name="EmlakTipiID" />
+          </Key>
+          <Property Name="EmlakTipiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Durum" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IlanDetay" Relationship="Self.FK_IlanDetay_EmlakTipi" FromRole="EmlakTipi" ToRole="IlanDetay" />
+        </EntityType>
+        <EntityType Name="Goruntulenmeler">
+          <Key>
+            <PropertyRef Name="GoruntulenmeID" />
+          </Key>
+          <Property Name="GoruntulenmeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlanId" Type="Int32" Nullable="false" />
+          <Property Name="KisiId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ilanlar" Relationship="Self.FK_Goruntulenmeler_Ilanlar" FromRole="Goruntulenmeler" ToRole="Ilanlar" />
+          <NavigationProperty Name="Kisiler" Relationship="Self.FK_Goruntulenmeler_Kisiler" FromRole="Goruntulenmeler" ToRole="Kisiler" />
+        </EntityType>
+        <EntityType Name="IlanDetay">
+          <Key>
+            <PropertyRef Name="IlanDetayID" />
+          </Key>
+          <Property Name="IlanDetayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlanId" Type="Int32" Nullable="false" />
+          <Property Name="BinaYasi" Type="Int32" Nullable="false" />
+          <Property Name="BulunduguKat" Type="Int32" Nullable="false" />
+          <Property Name="Durum" Type="Boolean" Nullable="false" />
+          <Property Name="EmlakTipiId" Type="Int32" Nullable="false" />
+          <Property Name="EmlakSahibiId" Type="Int32" Nullable="false" />
+          <Property Name="Esyali" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fiyat" Type="Int32" Nullable="false" />
+          <Property Name="KatSayisi" Type="Int32" Nullable="false" />
+          <Property Name="MetreKare" Type="Int32" Nullable="false" />
+          <Property Name="OdaSayisi" Type="Int32" Nullable="false" />
+          <Property Name="GoruntulenmeSayisi" Type="Int32" Nullable="false" />
+          <Property Name="BegenmeSayisi" Type="Int32" Nullable="false" />
+          <Property Name="YorumSayisi" Type="Int32" Nullable="false" />
+          <Property Name="KoordinatX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KoordinatY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdresId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK_IlanDetay_Adres" FromRole="IlanDetay" ToRole="Adres" />
+          <NavigationProperty Name="EmlakTipi" Relationship="Self.FK_IlanDetay_EmlakTipi" FromRole="IlanDetay" ToRole="EmlakTipi" />
+          <NavigationProperty Name="Ilanlar" Relationship="Self.FK_IlanDetay_Ilanlar" FromRole="IlanDetay" ToRole="Ilanlar" />
+          <NavigationProperty Name="Kisiler" Relationship="Self.FK_IlanDetay_Kisiler" FromRole="IlanDetay" ToRole="Kisiler" />
+          <NavigationProperty Name="Kisiler1" Relationship="eemlakDBModel.FK_IlanDetay_Kisiler1" FromRole="IlanDetay" ToRole="Kisiler" />
+        </EntityType>
+        <EntityType Name="Ilanlar">
+          <Key>
+            <PropertyRef Name="IlanID" />
+          </Key>
+          <Property Name="IlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlanBaslik" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IlanTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Durum" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Begenmeler" Relationship="Self.FK_Begenmeler_Ilanlar" FromRole="Ilanlar" ToRole="Begenmeler" />
+          <NavigationProperty Name="Goruntulenmeler" Relationship="Self.FK_Goruntulenmeler_Ilanlar" FromRole="Ilanlar" ToRole="Goruntulenmeler" />
+          <NavigationProperty Name="IlanDetay" Relationship="Self.FK_IlanDetay_Ilanlar" FromRole="Ilanlar" ToRole="IlanDetay" />
+          <NavigationProperty Name="Resimler" Relationship="Self.FK_Resimler_Ilanlar" FromRole="Ilanlar" ToRole="Resimler" />
+        </EntityType>
+        <EntityType Name="Ilceler">
+          <Key>
+            <PropertyRef Name="IlceID" />
+          </Key>
+          <Property Name="IlceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlceAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KisiSayisi" Type="Int32" />
+          <Property Name="SehirId" Type="Int32" Nullable="false" />
+          <Property Name="Durum" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK_Adres_Ilceler" FromRole="Ilceler" ToRole="Adres" />
+          <NavigationProperty Name="Sehirler" Relationship="Self.FK_Ilceler_Sehirler" FromRole="Ilceler" ToRole="Sehirler" />
+        </EntityType>
+        <EntityType Name="Kisiler">
+          <Key>
+            <PropertyRef Name="KisilerID" />
+          </Key>
+          <Property Name="KisilerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoyAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="KayitTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="TC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Yas" Type="Int16" />
+          <NavigationProperty Name="Begenmeler" Relationship="Self.FK_Begenmeler_Kisiler" FromRole="Kisiler" ToRole="Begenmeler" />
+          <NavigationProperty Name="Goruntulenmeler" Relationship="Self.FK_Goruntulenmeler_Kisiler" FromRole="Kisiler" ToRole="Goruntulenmeler" />
+          <NavigationProperty Name="IlanDetay" Relationship="Self.FK_IlanDetay_Kisiler" FromRole="Kisiler" ToRole="IlanDetay" />
+          <NavigationProperty Name="KisiRol" Relationship="Self.FK_KisiRol_Kisiler" FromRole="Kisiler" ToRole="KisiRol" />
+          <NavigationProperty Name="Yorumlar" Relationship="Self.FK_Yorumlar_Kisiler" FromRole="Kisiler" ToRole="Yorumlar" />
+          <NavigationProperty Name="IlanDetay1" Relationship="eemlakDBModel.FK_IlanDetay_Kisiler1" FromRole="Kisiler" ToRole="IlanDetay" />
+        </EntityType>
+        <EntityType Name="KisiRol">
+          <Key>
+            <PropertyRef Name="KisiRolID" />
+          </Key>
+          <Property Name="KisiRolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolID" Type="Int32" Nullable="false" />
+          <Property Name="KisiID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kisiler" Relationship="Self.FK_KisiRol_Kisiler" FromRole="KisiRol" ToRole="Kisiler" />
+          <NavigationProperty Name="Roller" Relationship="Self.FK_KisiRol_Roller" FromRole="KisiRol" ToRole="Roller" />
+        </EntityType>
+        <EntityType Name="Resimler">
+          <Key>
+            <PropertyRef Name="ResimlerID" />
+          </Key>
+          <Property Name="ResimlerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlanID" Type="Int32" Nullable="false" />
+          <Property Name="ResimYolu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ilanlar" Relationship="Self.FK_Resimler_Ilanlar" FromRole="Resimler" ToRole="Ilanlar" />
+        </EntityType>
+        <EntityType Name="Roller">
+          <Key>
+            <PropertyRef Name="RolID" />
+          </Key>
+          <Property Name="RolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KisiRol" Relationship="Self.FK_KisiRol_Roller" FromRole="Roller" ToRole="KisiRol" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="SehirID" />
+          </Key>
+          <Property Name="SehirID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SehirAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KisiSayisi" Type="Int32" Nullable="false" />
+          <Property Name="IlceSayisi" Type="Int32" Nullable="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="Adres" Relationship="Self.FK_Adres_Sehirler" FromRole="Sehirler" ToRole="Adres" />
+          <NavigationProperty Name="Ilceler" Relationship="Self.FK_Ilceler_Sehirler" FromRole="Sehirler" ToRole="Ilceler" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="YorumID" />
+          </Key>
+          <Property Name="YorumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Icerik" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KisiId" Type="Int32" Nullable="false" />
+          <Property Name="IlanId" Type="Int32" Nullable="false" />
+          <Property Name="YorumTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="YorumBasligi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kisiler" Relationship="Self.FK_Yorumlar_Kisiler" FromRole="Yorumlar" ToRole="Kisiler" />
+        </EntityType>
+        <Association Name="FK_Adres_Ilceler">
+          <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="1" />
+          <End Role="Adres" Type="Self.Adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilceler">
+              <PropertyRef Name="IlceID" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="IlceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adres_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="1" />
+          <End Role="Adres" Type="Self.Adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="SehirID" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_Adres">
+          <End Role="Adres" Type="Self.Adres" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adres">
+              <PropertyRef Name="AdresID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="AdresId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Begenmeler_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="Begenmeler" Type="Self.Begenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="Begenmeler">
+              <PropertyRef Name="IlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Begenmeler_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="Begenmeler" Type="Self.Begenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="Begenmeler">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_EmlakTipi">
+          <End Role="EmlakTipi" Type="Self.EmlakTipi" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmlakTipi">
+              <PropertyRef Name="EmlakTipiID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="EmlakTipiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goruntulenmeler_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="Goruntulenmeler" Type="Self.Goruntulenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="Goruntulenmeler">
+              <PropertyRef Name="IlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goruntulenmeler_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="Goruntulenmeler" Type="Self.Goruntulenmeler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="Goruntulenmeler">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="IlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IlanDetay_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="IlanDetay" Type="Self.IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="EmlakTipiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resimler_Ilanlar">
+          <End Role="Ilanlar" Type="Self.Ilanlar" Multiplicity="1" />
+          <End Role="Resimler" Type="Self.Resimler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanlar">
+              <PropertyRef Name="IlanID" />
+            </Principal>
+            <Dependent Role="Resimler">
+              <PropertyRef Name="IlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ilceler_Sehirler">
+          <End Role="Sehirler" Type="Self.Sehirler" Multiplicity="1" />
+          <End Role="Ilceler" Type="Self.Ilceler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sehirler">
+              <PropertyRef Name="SehirID" />
+            </Principal>
+            <Dependent Role="Ilceler">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KisiRol_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="KisiRol" Type="Self.KisiRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="KisiRol">
+              <PropertyRef Name="KisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Yorumlar_Kisiler">
+          <End Role="Kisiler" Type="Self.Kisiler" Multiplicity="1" />
+          <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="Yorumlar">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KisiRol_Roller">
+          <End Role="Roller" Type="Self.Roller" Multiplicity="1" />
+          <End Role="KisiRol" Type="Self.KisiRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roller">
+              <PropertyRef Name="RolID" />
+            </Principal>
+            <Dependent Role="KisiRol">
+              <PropertyRef Name="RolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eemlakDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adres" EntityType="Self.Adres" />
+          <EntitySet Name="Begenmeler" EntityType="Self.Begenmeler" />
+          <EntitySet Name="EmlakTipi" EntityType="Self.EmlakTipi" />
+          <EntitySet Name="Goruntulenmeler" EntityType="Self.Goruntulenmeler" />
+          <EntitySet Name="IlanDetay" EntityType="Self.IlanDetay" />
+          <EntitySet Name="Ilanlar" EntityType="Self.Ilanlar" />
+          <EntitySet Name="Ilceler" EntityType="Self.Ilceler" />
+          <EntitySet Name="Kisiler" EntityType="Self.Kisiler" />
+          <EntitySet Name="KisiRol" EntityType="Self.KisiRol" />
+          <EntitySet Name="Resimler" EntityType="Self.Resimler" />
+          <EntitySet Name="Roller" EntityType="Self.Roller" />
+          <EntitySet Name="Sehirler" EntityType="Self.Sehirler" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" />
+          <AssociationSet Name="FK_Adres_Ilceler" Association="Self.FK_Adres_Ilceler">
+            <End Role="Ilceler" EntitySet="Ilceler" />
+            <End Role="Adres" EntitySet="Adres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adres_Sehirler" Association="Self.FK_Adres_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="Adres" EntitySet="Adres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Adres" Association="Self.FK_IlanDetay_Adres">
+            <End Role="Adres" EntitySet="Adres" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Begenmeler_Ilanlar" Association="Self.FK_Begenmeler_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="Begenmeler" EntitySet="Begenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Begenmeler_Kisiler" Association="Self.FK_Begenmeler_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="Begenmeler" EntitySet="Begenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_EmlakTipi" Association="Self.FK_IlanDetay_EmlakTipi">
+            <End Role="EmlakTipi" EntitySet="EmlakTipi" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goruntulenmeler_Ilanlar" Association="Self.FK_Goruntulenmeler_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="Goruntulenmeler" EntitySet="Goruntulenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goruntulenmeler_Kisiler" Association="Self.FK_Goruntulenmeler_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="Goruntulenmeler" EntitySet="Goruntulenmeler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Ilanlar" Association="Self.FK_IlanDetay_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Kisiler" Association="Self.FK_IlanDetay_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resimler_Ilanlar" Association="Self.FK_Resimler_Ilanlar">
+            <End Role="Ilanlar" EntitySet="Ilanlar" />
+            <End Role="Resimler" EntitySet="Resimler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ilceler_Sehirler" Association="Self.FK_Ilceler_Sehirler">
+            <End Role="Sehirler" EntitySet="Sehirler" />
+            <End Role="Ilceler" EntitySet="Ilceler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KisiRol_Kisiler" Association="Self.FK_KisiRol_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="KisiRol" EntitySet="KisiRol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Yorumlar_Kisiler" Association="Self.FK_Yorumlar_Kisiler">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="Yorumlar" EntitySet="Yorumlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KisiRol_Roller" Association="Self.FK_KisiRol_Roller">
+            <End Role="Roller" EntitySet="Roller" />
+            <End Role="KisiRol" EntitySet="KisiRol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IlanDetay_Kisiler1" Association="eemlakDBModel.FK_IlanDetay_Kisiler1">
+            <End Role="Kisiler" EntitySet="Kisiler" />
+            <End Role="IlanDetay" EntitySet="IlanDetay" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_IlanDetay_Kisiler1">
+          <End Type="eemlakDBModel.Kisiler" Role="Kisiler" Multiplicity="1" />
+          <End Type="eemlakDBModel.IlanDetay" Role="IlanDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisiler">
+              <PropertyRef Name="KisilerID" />
+            </Principal>
+            <Dependent Role="IlanDetay">
+              <PropertyRef Name="EmlakSahibiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eemlakDBModelStoreContainer" CdmEntityContainer="eemlakDBEntities">
+          <EntitySetMapping Name="Adres">
+            <EntityTypeMapping TypeName="eemlakDBModel.Adres">
+              <MappingFragment StoreEntitySet="Adres">
+                <ScalarProperty Name="AdresID" ColumnName="AdresID" />
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="IlceId" ColumnName="IlceId" />
+                <ScalarProperty Name="Diger" ColumnName="Diger" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Begenmeler">
+            <EntityTypeMapping TypeName="eemlakDBModel.Begenmeler">
+              <MappingFragment StoreEntitySet="Begenmeler">
+                <ScalarProperty Name="BegenmeID" ColumnName="BegenmeID" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="IlanId" ColumnName="IlanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmlakTipi">
+            <EntityTypeMapping TypeName="eemlakDBModel.EmlakTipi">
+              <MappingFragment StoreEntitySet="EmlakTipi">
+                <ScalarProperty Name="EmlakTipiID" ColumnName="EmlakTipiID" />
+                <ScalarProperty Name="TipAdi" ColumnName="TipAdi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goruntulenmeler">
+            <EntityTypeMapping TypeName="eemlakDBModel.Goruntulenmeler">
+              <MappingFragment StoreEntitySet="Goruntulenmeler">
+                <ScalarProperty Name="GoruntulenmeID" ColumnName="GoruntulenmeID" />
+                <ScalarProperty Name="IlanId" ColumnName="IlanId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IlanDetay">
+            <EntityTypeMapping TypeName="eemlakDBModel.IlanDetay">
+              <MappingFragment StoreEntitySet="IlanDetay">
+                <ScalarProperty Name="IlanDetayID" ColumnName="IlanDetayID" />
+                <ScalarProperty Name="IlanId" ColumnName="IlanId" />
+                <ScalarProperty Name="BinaYasi" ColumnName="BinaYasi" />
+                <ScalarProperty Name="BulunduguKat" ColumnName="BulunduguKat" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="EmlakTipiId" ColumnName="EmlakTipiId" />
+                <ScalarProperty Name="EmlakSahibiId" ColumnName="EmlakSahibiId" />
+                <ScalarProperty Name="Esyali" ColumnName="Esyali" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="KatSayisi" ColumnName="KatSayisi" />
+                <ScalarProperty Name="MetreKare" ColumnName="MetreKare" />
+                <ScalarProperty Name="OdaSayisi" ColumnName="OdaSayisi" />
+                <ScalarProperty Name="GoruntulenmeSayisi" ColumnName="GoruntulenmeSayisi" />
+                <ScalarProperty Name="BegenmeSayisi" ColumnName="BegenmeSayisi" />
+                <ScalarProperty Name="YorumSayisi" ColumnName="YorumSayisi" />
+                <ScalarProperty Name="KoordinatX" ColumnName="KoordinatX" />
+                <ScalarProperty Name="KoordinatY" ColumnName="KoordinatY" />
+                <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ilanlar">
+            <EntityTypeMapping TypeName="eemlakDBModel.Ilanlar">
+              <MappingFragment StoreEntitySet="Ilanlar">
+                <ScalarProperty Name="IlanID" ColumnName="IlanID" />
+                <ScalarProperty Name="IlanBaslik" ColumnName="IlanBaslik" />
+                <ScalarProperty Name="IlanTarihi" ColumnName="IlanTarihi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ilceler">
+            <EntityTypeMapping TypeName="eemlakDBModel.Ilceler">
+              <MappingFragment StoreEntitySet="Ilceler">
+                <ScalarProperty Name="IlceID" ColumnName="IlceID" />
+                <ScalarProperty Name="IlceAdi" ColumnName="IlceAdi" />
+                <ScalarProperty Name="KisiSayisi" ColumnName="KisiSayisi" />
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kisiler">
+            <EntityTypeMapping TypeName="eemlakDBModel.Kisiler">
+              <MappingFragment StoreEntitySet="Kisiler">
+                <ScalarProperty Name="KisilerID" ColumnName="KisilerID" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="SoyAdi" ColumnName="SoyAdi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KisiRol">
+            <EntityTypeMapping TypeName="eemlakDBModel.KisiRol">
+              <MappingFragment StoreEntitySet="KisiRol">
+                <ScalarProperty Name="KisiRolID" ColumnName="KisiRolID" />
+                <ScalarProperty Name="RolID" ColumnName="RolID" />
+                <ScalarProperty Name="KisiID" ColumnName="KisiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resimler">
+            <EntityTypeMapping TypeName="eemlakDBModel.Resimler">
+              <MappingFragment StoreEntitySet="Resimler">
+                <ScalarProperty Name="ResimlerID" ColumnName="ResimlerID" />
+                <ScalarProperty Name="IlanID" ColumnName="IlanID" />
+                <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roller">
+            <EntityTypeMapping TypeName="eemlakDBModel.Roller">
+              <MappingFragment StoreEntitySet="Roller">
+                <ScalarProperty Name="RolID" ColumnName="RolID" />
+                <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sehirler">
+            <EntityTypeMapping TypeName="eemlakDBModel.Sehirler">
+              <MappingFragment StoreEntitySet="Sehirler">
+                <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+                <ScalarProperty Name="SehirAdi" ColumnName="SehirAdi" />
+                <ScalarProperty Name="KisiSayisi" ColumnName="KisiSayisi" />
+                <ScalarProperty Name="IlceSayisi" ColumnName="IlceSayisi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="eemlakDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorumlar">
+            <EntityTypeMapping TypeName="eemlakDBModel.Yorumlar">
+              <MappingFragment StoreEntitySet="Yorumlar">
+                <ScalarProperty Name="YorumID" ColumnName="YorumID" />
+                <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="IlanId" ColumnName="IlanId" />
+                <ScalarProperty Name="YorumTarihi" ColumnName="YorumTarihi" />
+                <ScalarProperty Name="YorumBasligi" ColumnName="YorumBasligi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

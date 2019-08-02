@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="929559b522fe49c2964ced800ebc3b00" Name="Diagram1">
+        <EntityTypeShape EntityType="eemlakDBModel.Adres" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Begenmeler" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.EmlakTipi" Width="1.5" PointX="3.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Goruntulenmeler" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.IlanDetay" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Ilanlar" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Ilceler" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Kisiler" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.KisiRol" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Resimler" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Roller" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Sehirler" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eemlakDBModel.Yorumlar" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <AssociationConnector Association="eemlakDBModel.FK_Adres_Ilceler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Adres_Sehirler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_IlanDetay_Adres" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Begenmeler_Ilanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Begenmeler_Kisiler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_IlanDetay_EmlakTipi" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Goruntulenmeler_Ilanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Goruntulenmeler_Kisiler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_IlanDetay_Ilanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_IlanDetay_Kisiler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Resimler_Ilanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Ilceler_Sehirler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_KisiRol_Kisiler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_Yorumlar_Kisiler" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_KisiRol_Roller" ManuallyRouted="false" />
+        <AssociationConnector Association="eemlakDBModel.FK_IlanDetay_Kisiler1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
